@@ -1,0 +1,39 @@
+<!-- this one create a side bar -->
+<mat-drawer-container [autosize]="true" class="min-h-full max-w-7xl mx-auto border-x">
+    <mat-drawer mode="side" opened class="p-6">
+        <app-filters (showCategory)="onShowCategory($event)"></app-filters>
+    </mat-drawer>
+
+    <!-- two buttons: one for ascending or descending order and one for the number -->
+    <mat-drawer-content class="pd-6">
+        <app-products-header (colsCountChange)="onColsCountChange($event)"></app-products-header>
+
+        <!-- good way to test the function -->
+        <!-- {{cols}} -->
+        <!-- {{category}} -->
+
+        <mat-grid-list gutterSize="16" [cols]="cols" [rowHeight]="rowHeight">
+            <mat-grid-tile>
+                <app-product-box class="w-full" [fullWidthMode]="cols == 1"> </app-product-box>
+
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <app-product-box class="w-full" [fullWidthMode]="cols == 1"> </app-product-box>
+
+            </mat-grid-tile> <mat-grid-tile>
+                <app-product-box class="w-full" [fullWidthMode]="cols == 1"> </app-product-box>
+
+            </mat-grid-tile> <mat-grid-tile>
+                <app-product-box class="w-full" [fullWidthMode]="cols == 1"> </app-product-box>
+
+            </mat-grid-tile> <mat-grid-tile>
+                <app-product-box class="w-full" [fullWidthMode]="cols == 1"> </app-product-box>
+
+            </mat-grid-tile> <mat-grid-tile>
+                <app-product-box class="w-full" [fullWidthMode]="cols == 1"> </app-product-box>
+
+            </mat-grid-tile>s
+        </mat-grid-list>
+
+    </mat-drawer-content>
+</mat-drawer-container>

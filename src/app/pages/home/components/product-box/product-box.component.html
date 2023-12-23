@@ -1,0 +1,26 @@
+<!-- conditioning in angular -->
+<mat-card [ngClass]="{'text-center': !fullWidthMode}">
+    <div [ngClass]="{flex: fullWidthMode}">
+        <img class="mb-1 mx-auto h-[200px]" [ngClass]="{'h-200px': !fullWidthMode, 'h-[360px]': fullWidthMode}"
+            src="https://showscene.ca/wp-content/uploads/2017/03/1c0d0f0cb8b7f2fb2685da9798efe42b_big-image-png-image-placeholder-clipart_2400-2400.png"
+            alt="">
+        <!-- flex column to manage the elements evenly -->
+        <div class="w-full" [ngClass]="{'px-8 flex flex-col justify-between': fullWidthMode}">
+            <div>
+                <h5>Shoes</h5>
+
+                <!-- if i have the text longer than the box, it truncates the box to ... -->
+                <p class="truncate hover:whitespace-normal">Snickers</p>
+                <p *ngIf="fullWidthMode">Description</p>
+            </div>
+            <div class="flex justify-between">
+                <span class="text-red-400">{{ '150' | currency}}</span>
+                <button>
+                    <mat-icon class="text-grey-500">
+                        shopping_cart
+                    </mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</mat-card>
