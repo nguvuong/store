@@ -1,8 +1,58 @@
-<mat-toolbar class="justify-between max-w-7xl mx-auto border-x-4 flex">
+<mat-toolbar class="max-w-7xl mx-auto border-x  justify-between ">
     <!-- what is the function of router Link in this case, return home   -->
     <a routerLink="home">Code with Sloba store</a>
 
-    <!-- wow this is the function of mat-icon -->
-    <mat-icon>shopping_cart</mat-icon>
+
+    <!-- create the checkout icon -->
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+
+        <!-- wow this is the function of mat-icon -->
+        <mat-icon [matBadge]="1" matBadgeColor="warn">shopping_cart</mat-icon>
+
+    </button>
+
+    <!-- this is how to create a menu -->
+    <mat-menu #menu="matMenu">
+        <div class="p-3 divide-y divide-solid">
+
+            <!-- justify between to put items horizontally -->
+            <div class="pb-3 flex justify-between">
+                <span class="mr-16">1 Items</span>
+                <a routerLink="cart">View Cart</a>
+            </div>
+
+            <!-- this gonna be used to fetch an array of data -->
+            <div class="py-3">
+                <!-- this padding above makes the spacing between the divide looke better -->
+
+                <div class="flex justify-between font-light mb-2">
+                    Keyboard x 1
+                    <span class="font-bold">{{ '150' | currency }}</span>
+                </div>
+                <div class="flex justify-between font-light mb-2">
+                    Keyboard x 1
+                    <span class="font-bold">{{ '150' | currency }}</span>
+                </div>
+                <div class="flex justify-between font-light mb-2">
+                    Keyboard x 1
+                    <span class="font-bold">{{ '150' | currency }}</span>
+                </div>
+            </div>
+
+            <div class="flex justify-between pb-3 font-light">
+                Total:
+                <span class="font-bold">{{ '450' | currency }}</span>
+            </div>
+            <!-- 2 buttons: remove all, checkout  -->
+            <div class="pt-3 flex justify-between">
+                <button class="bg-rose-600 text-white rounded-full w-9 h-9">
+                    <mat-icon>remove_shopping_cart</mat-icon>
+                </button>
+                <button routeLink="cart" class="bg-green-600 text-white rounded-full w-9 h-9">
+                    <mat-icon>remove_shopping_cart</mat-icon>
+                </button>
+            </div>
+        </div>
+    </mat-menu>
 
 </mat-toolbar>
